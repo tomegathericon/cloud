@@ -51,7 +51,7 @@ $salutation
 		SYSTEM UPTIME               $(uptime | awk '{print $3,$4,$5}'|  sed s/,//g) Hours
 		CURRENT TIME                $(date)
 		INSERTED DEVICES            $(lsblk -sdn | grep sd[b-z] | awk '{print$1}' | sed 'N;s/\n/ /')
-		LABELS				        $(ls --format=comma /dev/disk/by-label/)
+		LABELS		            $(ls --format=comma /dev/disk/by-label/)
 		DISK SPACE USED             $(df -h | grep sda1 | awk '{print $3}' | sed s/G/" GB"/)
 		DISK SPACE AVAILABLE        $(df -h | grep sda1 | awk '{print $4}' | sed s/G/" GB"/)
 		SYSTEM TEMPERATURE          $(acpi -t | awk '{print $4, $5, $6}')
